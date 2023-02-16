@@ -36,7 +36,7 @@ def clean_fn(fn, output_folder='output'):
         body_data = u.load()
 
     output_dict = {}
-    for key, data in body_data.iteritems():
+    for key, data in body_data.items():
         if 'chumpy' in str(type(data)):
             output_dict[key] = np.array(data)
         else:
