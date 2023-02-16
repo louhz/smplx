@@ -31,7 +31,7 @@ import numpy as np
 
 def clean_fn(fn, output_folder='output'):
     with open(fn, 'rb') as body_file:
-        u=pickle_Unpickler(body_file)
+        u=pickle._Unpickler(body_file)
         u.encoding = 'latin1'
         body_data = u.load()
 
