@@ -24,14 +24,16 @@ import os
 import os.path as osp
 
 import pickle
-
+import gzip
 from tqdm import tqdm
 import numpy as np
 
 
 def clean_fn(fn, output_folder='output'):
     with open(fn, 'rb') as body_file:
-        body_data = pickle.load(body_file)
+        u=pickle_Unpickler(body_file)
+        u.encoding = 'latin1'
+        body_data = u.load()
 
     output_dict = {}
     for key, data in body_data.iteritems():
